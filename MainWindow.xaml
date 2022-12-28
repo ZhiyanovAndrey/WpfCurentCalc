@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfCurentCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCurentCalc"
+        mc:Ignorable="d"
+        Title="Расчет уравнительного тока" Height="450" Width="800" Background="#FF919592">
+    <Window.Resources>
+        <Style x:Key="controls">
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.Margin" Value="25"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="Control.Background" Value="DarkGray"/>
+            
+           
+
+    
+        </Style>
+
+        <Style x:Key="textbl" BasedOn="{StaticResource controls}">
+              <Setter Property="TextBox.TextAlignment" Value="Center"/>
+              <Setter Property="TextBox.BorderBrush" Value="#FF0F0E0E"/>          
+              <Setter Property="TextBox.BorderThickness" Value="3 3 1 1"/>
+         
+
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="gridchange">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Grid.Row="0" Grid.Column="1" Content="ЭЧЭ-50 Шумерля" VerticalContentAlignment="Center" FontSize="14" HorizontalAlignment="Center" />
+        <Label Grid.Row="0" Grid.Column="2" Content="ЭЧЭ-51 Сергач" VerticalContentAlignment="Center" FontSize="14" HorizontalAlignment="Center" />
+        <Label Grid.Row="0" Grid.Column="3" Content="ЭЧЭ-52 Бобыльская" VerticalContentAlignment="Center" FontSize="14" HorizontalAlignment="Center" />
+
+
+        <Label Grid.Row="1" Content="Уровень напряжения 110 кВ" VerticalContentAlignment="Center" FontSize="14" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="TB_U110_50" Style="{StaticResource textbl}" TextChanged="TextBox_TextChanged_50"/>
+        <TextBox Grid.Row="1" Grid.Column="2" x:Name="TB_U110_51" Style="{StaticResource textbl}" TextChanged="TextBox_TextChanged_51"/>
+        <TextBox Grid.Row="1" Grid.Column="3" x:Name="TB_U110_52" Style="{StaticResource textbl}" TextChanged="TextBox_TextChanged_52"/>
+        
+        <Label Grid.Row="2" Content="Положение РПН" VerticalContentAlignment="Center" FontSize="14" />
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource textbl}"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource textbl}"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource textbl}"/>
+        
+        <TextBlock Grid.Row="3" Text="Напряжение на шинах 27.5 кВ" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap" />
+        <TextBlock Grid.Row="3" Grid.Column="1" x:Name="TB_U27_50" Style="{StaticResource textbl}"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="TB_U27_51" Style="{StaticResource textbl}"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" x:Name="TB_U27_52" Style="{StaticResource textbl}"/>
+
+        <Label Grid.Row="4" Content="Уравнительный ток, А" VerticalContentAlignment="Center" FontSize="14" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="TB_I5051" Style="{StaticResource textbl}" />
+        <TextBlock Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" x:Name="TB_I5052" Style="{StaticResource textbl}"/>
+
+
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="4" x:Name="message" Style="{StaticResource textbl}"/>
+
+    </Grid>
+</Window>
